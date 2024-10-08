@@ -1,5 +1,5 @@
 const http = require('http');
-const { flipCoinAndFetchAdvice } = require('./callback');
+const { flipCoinAndFetchAdvice } = require('../callback');
 
 http.createServer((req, res) => {
     res.writeHead(200, {'Content-Type': 'text/plain'});

@@ -1,6 +1,6 @@
 // function flipCoin (){
 //     return new Promise((resolve, reject) => {
-//         let result = math.random();
+//         let result = Math.random();
 //         if(result >0.5) {
 //            resolve("You Won!");
 //          } else{
@@ -17,18 +17,18 @@
 
 
 
-// // function fetchAdvice(){
-// // fetch('https://api.adviceslip.com/advice')
-// // .then(response => response.json())
-// // .then(data =>{
-// //     console.log("advice",data.slipe.advice)
-// // })
-// // .catch( error =>{
-// //     console.log("There was an error fetching the advice: ", error);
-// // })
-// // }
+// function fetchAdvice(){
+// fetch('https://api.adviceslip.com/advice')
+// .then(response => response.json())
+// .then(data =>{
+//     console.log("advice",data.slip.advice)
+// })
+// .catch( error =>{
+//     console.log("There was an error fetching the advice: ", error);
+// })
+// }
 
-// // fetchAdvice();
+// fetchAdvice();
 
 // function flipCoinAndFetchAdvice (){
 //     flipCoin()
@@ -37,10 +37,10 @@
 //         return fetch('https://api.adviceslip.com/advice');
 //     })
 //     .then(response => response.json())
-//     .data( =>{
+//     .then(data  =>{
 //         console.log("Advice: ", data.slip.advice);
 //     })
-//     .cath(error =>{
+//     .catch(error =>{
 //         console.log(error);
 //     });
 // }
@@ -61,17 +61,6 @@ async function flipCoin() {
     }
 }
 
-async function handleFlipCoin() {
-    try {
-        const message = await flipCoin();
-        console.log(message);
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-handleFlipCoin();
-
 const fetchAdvice = async () => {
     try {
         const response = await fetch('https://api.adviceslip.com/advice');
@@ -91,7 +80,7 @@ const flipCoinAndFetchAdvice = async () => {
         
         const response = await fetch('https://api.adviceslip.com/advice');
         const data = await response.json();
-        console.log("Advice: ", data.slip.advice);
+   
         
     } catch (error) {
        

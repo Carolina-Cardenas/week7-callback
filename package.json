@@ -1,8 +1,9 @@
 {
   "name": "week7-callback",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "callback.js",
   "scripts": {
+    "dev": "node async-pomises/server/server.js" ,
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
