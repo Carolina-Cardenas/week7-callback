@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip and Advice</title>
+</head>
+<body>
+    <h1>Coin Flip and Advice Game</h1>
+    <button id="flip-btn">Flip the coin</button>
+    <p id="result"></p>
+    <p id="advice"></p>
+
+    <script>
+        function flipCoin() {
+            return new Promise((resolve, reject) => {
+                let result = Math.random();
+                if (result > 0.5) {
+                    resolve("You won!");
+                } else {
+                    reject("You lost!");
+                }
+            });
+        }
+
+        function fetchAdvice() {
+            return fetch('https://api.adviceslip.com/advice')
+                .then(response => response.json())
+                .then(data => data.slip.advice);
+        }
+
+        document.getElementById('flip-btn').addEventListener('click', () => {
+            const resultElem = document.getElementById('result');
+            const adviceElem = document.getElementById('advice');
+            
+            flipCoin()
+                .then(message => {
+                    resultElem.textContent = message;
+                    return fetchAdvice();
+                })
+                .then(advice => {
+                    adviceElem.textContent = "Advice: " + advice;
+                })
+                .catch(error => {
+                    resultElem.textContent = error;
+                });
+        });
+    </script>
+</body>
+</html>

@@ -27,3 +27,20 @@ fetch('https://api.adviceslip.com/advice')
 }
 
 fetchAdvice();
+
+function flipCoinAndFetchAdvice (){
+    flipCoin()
+    .then(message =>{
+        console.log(message);
+        return fetch('https://api.adviceslip.com/advice');
+    })
+    .then(response => response.json())
+    .data( =>{
+        console.log("Advice: ", data.slip.advice);
+    })
+    .cath(error =>{
+        console.log(error);
+    });
+}
+
+flipCoinAndFetchAdvice();
